@@ -5,7 +5,7 @@ class Readingdb < Formula
 
   head 'https://github.com/SoftwareDefinedBuildings/readingdb.git', :branch => 'adaptive'
 
-  depends_on 'lbdb'
+  depends_on 'berkeley-db'
   depends_on 'protobuf'
   depends_on 'protobuf-c'
   depends_on 'lzlib'
