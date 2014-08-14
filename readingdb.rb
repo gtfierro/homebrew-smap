@@ -1,9 +1,9 @@
 require 'formula'
 
 class ReadingDB < Formula
-    homepage "https://github.com/SoftwareDefinedBuildings/readingdb"
+    homepage 'https://github.com/SoftwareDefinedBuildings/readingdb'
 
-    head "https://github.com/SoftwareDefinedBuildings/readingdb.git", :branch => "adaptive"
+    head 'https://github.com/SoftwareDefinedBuildings/readingdb.git', :branch => 'adaptive'
 
     depends_on 'lbdb'
     depends_on 'protobuf'
@@ -14,13 +14,13 @@ class ReadingDB < Formula
     depends_on 'swig'
 
     def install
-        inreplace "src/reading-server.c", /inline valid_bucketsize/, "valid_bucketsize"
+        inreplace 'src/reading-server.c', /inline valid_bucketsize/, 'valid_bucketsize'
         ENV['CC'] = 'llvm-gcc'
         ENV['CXX'] = 'llvm-g++'
-        system "autoreconf", "--install"
-        system "./configure"
-        system "make"
-        system "make", "install"
+        system 'autoreconf', '--install'
+        system './configure'
+        system 'make'
+        system 'make', 'install'
     end
 end
 
