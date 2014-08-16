@@ -12,6 +12,7 @@ class Readingdb < Formula
   depends_on 'autoconf'
   depends_on 'automake'
   depends_on 'swig'
+  depends_on :python
 
   def install
     inreplace 'src/reading-server.c', /inline int valid_bucketsize/, 'int valid_bucketsize'
@@ -21,6 +22,10 @@ class Readingdb < Formula
     system './configure', '--prefix=/usr/local/'
     system 'make'
     system 'sudo', 'make', 'install'
+
+    Dir.chdir("python")
+    system 'make'
+    system "python", 'setup.py', 'install', "--prefix=#{prefix}"
   end
 end
 
