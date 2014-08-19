@@ -28,6 +28,7 @@ class Readingdb < Formula
     system 'make'
     system "python", 'setup.py', 'install', "--prefix=#{prefix}"
   end
+
   def caveats
     s = <<-EOS.undent
     Make sure you add homebrew to your PYTHONPATH. Add the following to your .bash_profile:
