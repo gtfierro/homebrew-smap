@@ -6,11 +6,13 @@ class Smap < Formula
 
   #depends_on 'gnu-sed' => :build
   depends_on :python
+  depends_on 'supervisor' => :python
+
 
   def install
     Dir.chdir("python")
-    inreplace 'setup.py', "('/etc/supervisor/conf.d/', ['supervisor/archiver.conf']),", ''
-    inreplace 'setup.py', "('/etc/smap/', ['conf/archiver.ini']),", ''
+    inreplace 'setup.py', "('/etc/supervisor/conf.d/'", "('/usr/local/etc/conf.d/'"
+    inreplace 'setup.py', "('/etc/smap/'", "('/usr/local/etc/smap'"
     system "python", 'setup.py', 'install', "--prefix=#{prefix}"
   end
 
