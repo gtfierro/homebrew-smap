@@ -11,7 +11,7 @@ class Smap < Formula
 
   def install
     Dir.chdir("python")
-    inreplace 'setup.py', "('/etc/supervisor/conf.d/'", "('/usr/local/etc/conf.d/'"
+    inreplace 'setup.py', "('/etc/supervisor/conf.d/'", "('/usr/local/etc/supervisor/conf.d/'"
     inreplace 'setup.py', "('/etc/smap/'", "('/usr/local/etc/smap'"
     system "python", 'setup.py', 'install', "--prefix=#{prefix}"
   end
